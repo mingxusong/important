@@ -116,9 +116,19 @@
 * 反射创建类实例
 
 
-    Class.forName().newInstance();
-    ClassLoader.loadClass().newInstance();
-    类名.class.newInstance();
+        Class.forName().newInstance();
+        ClassLoader.loadClass().newInstance();
+        类名.class.newInstance();
     
  #### 13.反射中,Class.forName 和 ClassLoader 区别
- * 当使用.class来创建对Class对象的引用时,不会自动初始化该Class对象.为了使用类而做的准备工作包括三个步骤
+* 当使用.class来创建对Class对象的引用时,不会自动初始化该Class对象.为了使用类而做的准备工作包括三个步骤
+    * Class.forName得到的class是已经初始化完成的
+    * Classloader.loaderClass得到的class是还没有链接的
+ 
+ 
+    1.加载:由类加载器执行,查找字节码并从这些字节码中创建一个class对象
+    2.链接:验证类中的字节码,为静态域分配空间,解析这个类创建的对其他类的所有引用
+    3.初始化:如果该类具有超类,则对其初始化,执行静态初始化器和静态初始化块.初始化被元迟到了对静态方法(构造器隐式地是静态的)或者非常数静态域进行首次引用时才执行
+
+#### 14.描述动态代理的几种实现方式,分别说出相应的优缺点
+
