@@ -116,10 +116,9 @@
 * 反射创建类实例
 
 
-
-    1.Class.forName().newInstance();
-    2.ClassLoader.loadClass().newInstance();
-    3.类名.class.newInstance();
+    Class.forName().newInstance();
+    ClassLoader.loadClass().newInstance();
+    类名.class.newInstance();
     
  #### 13.反射中,Class.forName 和 ClassLoader 区别
  * 当使用.class来创建对Class对象的引用时,不会自动初始化该Class对象.为了使用类而做的准备工作包括三个步骤
