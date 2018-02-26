@@ -116,6 +116,7 @@
 * 反射创建类实例
 
 
+
     1.Class.forName().newInstance();
     2.ClassLoader.loadClass().newInstance();
     3.类名.class.newInstance();
