@@ -135,3 +135,84 @@
 
 #### 14.描述动态代理的几种实现方式,分别说出相应的优缺点
 
+    以二进制形式修改已有类或者动态生成类,在类被加载入 Java 虚拟机之前动态改变类行为
+
+* JDK
+    * java原生动态代理
+    * 运行速度慢
+* Javassist
+    * 没有类型检查
+    * 没有泛型支持
+    * 没有自动封包差包
+    * 运行速度较快
+* CGLIB
+    * 会导致PermGen内存泄露
+    * 运行速度块
+    
+#### 15.动态代理与CGLIB实现的区别
+* JDK
+  * 定义一个功能接口，然后让代理和来实现这个接口  
+* CGLIB
+  * 通过继承.代理继承自被代理类中的方法,这样代理则拥有了被代理类中的的功能,代理还可以通过重写被代理类中的方法,来实现多态.
+  
+#### 16.为什么CGlib方式可以对接口实现代理.
+
+    通过继承.代理继承自被代理类中的方法,这样代理则拥有了被代理类中的的功能,代理还可以通过重写被代理类中的方法,来实现多态.
+
+#### 17.final 的用途
+* 修饰属性表示常量
+* 修饰类表示不可被继承
+* 修饰方法表示不可被重载
+
+#### 18.写出三种单例模式实现
+* 懒汉模式
+    
+    
+    public class Singleton {  
+        private static Singleton instance = null;  
+        private Singleton(){}  
+        public static Singleton getInstance() {  
+            if (instance == null) {  
+                synchronized (Singleton.class) {  
+                    if (instance == null) {
+                        instance = new Singleton();  
+                    }  
+                }  
+            }  
+        return instance;  
+        }  
+    }
+        
+* 饿汉模式
+
+
+    public class Singleton{  
+        private static Singleton instance = new Singleton();  
+        private Singleton(){}  
+        public static Singleton newInstance(){  
+            return instance;  
+        }  
+    }
+    
+* 枚举模式
+
+
+    public enum Singleton{  
+        instance;  
+        public void doSomething(){}      
+    }  
+
+#### 19.如何在父类中为子类自动完成所有的 hashcode 和 equals 实现?这么做有何优劣
+* 子类不实现hashcode和equals默认调用父类方法
+* 父类设置公共参数,为公共参数实现hashcode和equals
+    * 优点
+        * 子类无需实现hashcode和equals
+    * 缺点
+        * 无法根据子类特定属性实现hashcode和equals
+        
+
+#### 20.请结合 OO 设计理念,谈谈访问修饰符 public private protected default 在应用设计中的作用
+* public
+* private
+* protected
+* default
