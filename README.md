@@ -168,39 +168,39 @@
 * 懒汉模式
     
     
-    public class Singleton {  
-        private static Singleton instance = null;  
-        private Singleton(){}  
-        public static Singleton getInstance() {  
-            if (instance == null) {  
-                synchronized (Singleton.class) {  
-                    if (instance == null) {
-                        instance = new Singleton();  
-                    }  
-                }  
-            }  
-        return instance;  
-        }  
-    }
+    	public class Singleton {  
+        	private static Singleton instance = null;  
+        	private Singleton(){}  
+        	public static Singleton getInstance() {  
+            	if (instance == null) {  
+                	synchronized (Singleton.class) {  
+                    		if (instance == null) {
+                        		instance = new Singleton();  
+                    		}  
+                	}  
+            	}  
+        	return instance;  
+        	}  
+    	}
         
 * 饿汉模式
 
 
-    public class Singleton{  
-        private static Singleton instance = new Singleton();  
-        private Singleton(){}  
-        public static Singleton newInstance(){  
-            return instance;  
-        }  
-    }
+    	public class Singleton{  
+        	private static Singleton instance = new Singleton();  
+        	private Singleton(){}  
+        	public static Singleton newInstance(){  
+            		return instance;  
+        	}  
+    	}
     
 * 枚举模式
 
 
-    public enum Singleton{  
-        instance;  
-        public void doSomething(){}      
-    }  
+    	public enum Singleton{  
+        	instance;  
+        	public void doSomething(){}      
+    	}  
 
 #### 19.如何在父类中为子类自动完成所有的 hashcode 和 equals 实现?这么做有何优劣
 * 子类不实现hashcode和equals默认调用父类方法
