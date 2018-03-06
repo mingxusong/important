@@ -233,5 +233,53 @@
 #### 22.数组和链表数据结构描述,各自的时间复杂度
 * 数组
     * 线性结构实现
+    * 逻辑存储顺序与物理存储顺序一致
+    * 长度固定
 * 链表
     * 链式存储结构
+    * 逻辑存储顺序与物理存储顺序不一致,需要记录元素前驱后继记录元素逻辑位置
+    * 长度可变
+
+#### 23.error和exception的区别,CheckedException,RuntimeException的区别
+* error
+    * 程序无法处理的错误,发生于虚拟机自身或虚拟机试图执行应用,可能会导致中断线程
+* exception
+    * 操作或操作可能会引发的错误,可以被程序处理
+    * CheckedException
+        * 检查型异常,强制要求必须做异常处理
+    * RuntimeException
+        * 运行时异常,因操作引发的异常,不要求强制做异常处理
+
+#### 24.请列出5个运行时异常
+* NullPointException 
+    * 空指针异常
+    * 调用对象为null的时候发生
+* IndexOutOfBoundsException
+    * 数组下标越界一场
+    * 获取对象下标超出数组长度时
+* ClassCastException
+    * 类转换异常
+    * 类型转换时类型不属于父子类或同一个类型时
+* IllegalArgumentException
+    * 非法参数异常
+    * 函数需要参数与传递参数不符时 
+* UnsupportedOperationException
+    * 不支持操作异常
+    * 调用函数不存在时
+
+#### 25.在自己的代码中,如果创建一个java.lang.String对象,这个对象是否可以被类加载器加载?为什么
+* 不可以
+* jdk类加载器 启动类加载器(bootstrap)会将Java_Home/lib下面的类库加载到内存中,所以自己创建的java.lang.String对象无法被加载
+
+#### 26.说一说你对java.lang.Object对象中hashCode和equals方法的理解.在什么场景下需要重新实现这两个方法.
+* equals
+    * 进行非引用判断对象是否一致
+    * 当使用属性或特殊方法判断对象是否一致时重新实现
+* hashcode
+    * 计算hashcode
+    * 当需要在使用hash存储时为了让元素更分散或更密集时重新实现
+
+#### 在jdk1.5中,引入了泛型,泛型的存在是用来解决什么问题
+
+
+        
